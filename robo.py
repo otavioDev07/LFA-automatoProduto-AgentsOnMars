@@ -15,7 +15,6 @@ def criar_robo():
         ("R_Entregue", "A"): "R_Plan",
     }
 
-    for estado in estados:
-        programa[(estado, "E")] = estado
+    for estado in estados: programa[(estado, "E")] = estado
 
     return Automato(alfabeto, estados, programa, "R_Base", {"R_Entregue"})

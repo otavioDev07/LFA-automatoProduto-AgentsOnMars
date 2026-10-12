@@ -6,5 +6,4 @@ class Automato:
         self.estadoInicial = estadoInicial
         self.estadosFinais = estadosFinais
 
-    def lerEntrada(self, estado, simbolo):
-        return self.programa.get((estado, simbolo))
+    def lerEntrada(self, estado, simbolo): return self.programa.get((estado, simbolo))

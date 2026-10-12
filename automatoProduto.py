@@ -17,11 +17,9 @@ class AutomatoProduto:
         novoRobo = self.robo.lerEntrada(estadoRobo, simbolo)
         novoAlien = self.alien.lerEntrada(estadoAlien, simbolo)
 
-        if novoRobo is None or novoAlien is None:
-            return "TRANSIÇÃO INVÁLIDA"
+        if novoRobo is None or novoAlien is None: return "TRANSIÇÃO INVÁLIDA"
 
-        if novoAlien == "A_Plan" and novoRobo in {"R_Plan", "R_PlanC"}:
-            return "ROBÔ CAPTURADO"
+        if novoAlien == "A_Plan" and novoRobo in {"R_Plan", "R_PlanC"}: return "ROBÔ CAPTURADO"
 
         return (novoRobo, novoAlien)
 
@@ -33,15 +31,12 @@ class AutomatoProduto:
 
             estadoRobo, estadoAlien = estadoAtual
 
-            if (estadoRobo in self.robo.estadosFinais
-                    and estadoAlien in self.alien.estadosFinais):
-                self.estadosFinais.add(estadoAtual)
+            if (estadoRobo in self.robo.estadosFinais and estadoAlien in self.alien.estadosFinais): self.estadosFinais.add(estadoAtual)
 
             for simbolo in self.robo.alfabeto:
                 proximoEstado = self.lerEntrada(estadoAtual, simbolo)
 
-                if proximoEstado in ("TRANSIÇÃO INVÁLIDA", "ROBÔ CAPTURADO"):
-                    continue
+                if proximoEstado in ("TRANSIÇÃO INVÁLIDA", "ROBÔ CAPTURADO"): continue
 
                 self.programa[(estadoAtual, simbolo)] = proximoEstado
 

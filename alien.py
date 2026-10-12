@@ -13,8 +13,7 @@ def criar_alien():
     programa = {}
 
     for estado, destino in ciclo.items():
-        for simbolo in alfabeto:
-            programa[(estado, simbolo)] = destino
+        for simbolo in alfabeto: programa[(estado, simbolo)] = destino
 
     return Automato(alfabeto, estados, programa, "A_Cav1", estados)
 
