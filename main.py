@@ -1,17 +1,23 @@
 from robo import criar_robo
 from alien import criar_alien
+from automatoProduto import AutomatoProduto
 
 def main():
     robo = criar_robo()
     alien = criar_alien()
+    produto = AutomatoProduto(robo, alien)
 
-    print(robo.lerEntrada("R_Base", "A"))
-    print(robo.lerEntrada("R_Mina", "C"))
-    print(robo.lerEntrada("R_Mina", "E"))
+    produto.gerar_produto()
 
-    print(alien.lerEntrada("A_Cav1", "A"))
-    print(alien.lerEntrada("A_Cav2", "E"))
-    print(alien.lerEntrada("A_Plan", "R"))
+    print("Estados:", len(produto.estados))
+    print("Transições:", len(produto.programa))
+    print("Estados finais:", len(produto.estadosFinais))
 
+    while True:
+        palavra = input("entre com uma palavra válida ou SAIR para encerrar: \n").strip().upper()
+        if palavra == "SAIR": break
+        produto.testarPalavra(palavra)
+    
+    
 if __name__ == "__main__":
     main()
