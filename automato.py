@@ -1,4 +1,4 @@
-class automato:
+class Automato:
     def __init__(self, alfabeto, estados, programa, estadoInicial, estadosFinais):
         self.alfabeto = alfabeto
         self.estados = estados
